@@ -12,6 +12,33 @@
   padding: 0 40px;
 }
 
+.button {
+  font-family: "Roboto", "Verdana", "Geneva", sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #000000;
+
+  border: none;  
+  border-radius: 10px; 
+  box-shadow: 0 1px 6px 0 rgba(93, 115, 180, 0.3);
+  background: #21a4f7;
+  color: white;
+  font-weight: 600;
+
+  transition: 1s;
+  cursor: pointer;
+}
+
+.button:focus,
+.button:active {
+  outline: none;
+}
+
+.button:hover {
+  box-shadow: 0 1px 6px 0 rgba(93, 115, 180, 0.6);
+}
+
 @media screen and (max-width: 480px) {
   .wrapper {
     padding: 0 20px;
