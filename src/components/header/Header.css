@@ -1,0 +1,56 @@
+.header {
+  padding: 12px 0;
+  margin-bottom: 64px;
+  background:#1a1a1a;;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.header__logo a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.header__navbar a {
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.header__navbar a:hover {
+  text-decoration: underline;
+}
+
+.header__watchlist-button:hover .watchlist-icon {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+.watchlist-icon {
+  margin-right: 4px;
+  opacity: 0.4;
+}
+
+@media screen and (max-width: 480px) {
+  .header__logo {
+    font-size: 11px;
+  }
+
+  .header__navbar a {
+    font-size: 13px;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
+}

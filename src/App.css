@@ -1,0 +1,19 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+}
