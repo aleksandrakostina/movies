@@ -1,6 +1,6 @@
 import { SET_SEARCH_VALUE, GET_MOVIES_INIT, GET_MOVIES_SUCCESS, GET_MOVIES_ERROR, DELETE_FAVORITE_MOVIE, 
   ADD_FAVORITE_MOVIE, GET_MOVIES_NEXT_PAGE_ERROR, GET_MOVIES_NEXT_PAGE_SUCCESS, GET_MOVIES_NEXT_PAGE_INIT, 
-  GET_MOVIE_DETAILS_ERROR, GET_MOVIE_DETAILS_SUCCESS, GET_MOVIE_DETAILS_INIT } from "./actions";
+  GET_MOVIE_DETAILS_ERROR, GET_MOVIE_DETAILS_SUCCESS, GET_MOVIE_DETAILS_INIT, GET_ALL_MOVIES_DETAILS_ERROR, GET_ALL_MOVIES_DETAILS_SUCCESS, GET_ALL_MOVIES_DETAILS_INIT } from "./actions";
 
 const defaultValueDataMovie = (data = {}) => ({data: data, isLoading: false, error: false, errorMessage: ''});
 
@@ -115,6 +115,34 @@ export const moviesReducer = (state = initialState, action) => {
         ...state,
         movies: {
           ...state.movies,
+          isLoading: false,
+          error: true,
+          errorMessage: action.data.Error
+        }
+      }
+    case GET_ALL_MOVIES_DETAILS_INIT:
+      return {
+        ...state,
+        favorite: {
+          ...state.favorite,
+          isLoading: true,
+          error: false,
+          errorMessage: ''
+        }
+      }
+    case GET_ALL_MOVIES_DETAILS_SUCCESS:
+      return {
+        ...state,
+        favorite: {
+          data: [...state.favorite.data, action.data],
+          isLoading: false
+        }
+      }
+    case GET_ALL_MOVIES_DETAILS_ERROR:
+      return {
+        ...state,
+        favorite: {
+          ...state.favorite,
           isLoading: false,
           error: true,
           errorMessage: action.data.Error

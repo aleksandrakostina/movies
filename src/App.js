@@ -4,6 +4,7 @@ import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 import NotFound from './components/notFound/NotFound';
+import WatchlistContainer from './components/watchlist/WatchlistContainer';
 import MovieProvider from './MovieProvider';
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <Header />
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route path="/watchlist" exact component={WatchlistContainer} />
             <Route path="/" component={NotFound} />
           </Switch>
         </MovieProvider>

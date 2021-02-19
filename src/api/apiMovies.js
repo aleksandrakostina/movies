@@ -22,3 +22,7 @@ export const fetchGetMovies = (search, page = 1) => {
 export const fetchGetMovieDetails = (ImdbID) => {
   return fetchApi(URL+`/?i=${ImdbID}&plot=full&apikey=${API_KEY}`);
 }
+
+export const fetchGetMovieDetailsSmall = (ImdbID) => {
+  return fetchApi(URL+`/?i=${ImdbID}&apikey=${API_KEY}`);
+}

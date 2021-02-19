@@ -1,7 +1,7 @@
 import { ADD_FAVORITE_MOVIE, DELETE_FAVORITE_MOVIE, GET_MOVIES_ERROR, GET_MOVIES_INIT, GET_MOVIES_SUCCESS, 
   SET_SEARCH_VALUE, GET_MOVIE_DETAILS_INIT, GET_MOVIE_DETAILS_ERROR, GET_MOVIE_DETAILS_SUCCESS,
-  GET_MOVIES_NEXT_PAGE_INIT, GET_MOVIES_NEXT_PAGE_SUCCESS, GET_MOVIES_NEXT_PAGE_ERROR } from "./actions";
-import { fetchGetMovies, fetchGetMovieDetails } from './../api/apiMovies';
+  GET_MOVIES_NEXT_PAGE_INIT, GET_MOVIES_NEXT_PAGE_SUCCESS, GET_MOVIES_NEXT_PAGE_ERROR, GET_ALL_MOVIES_DETAILS_INIT, GET_ALL_MOVIES_DETAILS_ERROR, GET_ALL_MOVIES_DETAILS_SUCCESS } from "./actions";
+import { fetchGetMovies, fetchGetMovieDetails, fetchGetMovieDetailsSmall } from './../api/apiMovies';
 
 const setSearchValue = (search) => {
   return { type: SET_SEARCH_VALUE, search };
@@ -93,6 +93,36 @@ export const getMoviesNextPage = (search, page) => {
     })
     .catch(e => {
       dispatch(getMoviesNextPageError({Error: 'Oppps! Something went wrong'}));
+    })
+  }
+}
+
+const getAllMoviesDetailsInit = () => {
+  return { type: GET_ALL_MOVIES_DETAILS_INIT }
+}
+const getAllMoviesDetailsError = (data) => {
+  return { type: GET_ALL_MOVIES_DETAILS_ERROR, data }
+}
+const getAllMoviesDetailsSuccess = (data) => {
+  return { type: GET_ALL_MOVIES_DETAILS_SUCCESS, data }
+}
+
+export const getAllMoviesDetails = (arrId) => {
+  return (dispatch) => {
+    dispatch(getAllMoviesDetailsInit());
+    const request = arrId.map(id => fetchGetMovieDetailsSmall(id))
+    Promise.all(request)
+    .then(data => {
+      data.forEach(item => {
+        if(item.Response === "True") {
+          dispatch(getAllMoviesDetailsSuccess(item));
+        } else {
+          dispatch(getAllMoviesDetailsError(item.Error));
+        }
+      })
+    })
+    .catch(e => {
+      dispatch(getAllMoviesDetailsError({Error: 'Oppps! Something went wrong'}))
     })
   }
 }
