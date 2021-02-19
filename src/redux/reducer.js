@@ -58,7 +58,7 @@ export const moviesReducer = (state = initialState, action) => {
     case DELETE_FAVORITE_MOVIE:
       return {
         ...state,
-        favoriteMovies: state.favoriteMovies.filter(movie => movie.imdbID !== action.id.imdbID)
+        favoriteMovies: state.favoriteMovies.filter(movie => movie !== action.id)
       }
     case GET_MOVIE_DETAILS_INIT:
       return {
@@ -134,7 +134,7 @@ export const moviesReducer = (state = initialState, action) => {
       return {
         ...state,
         favorite: {
-          data: [...state.favorite.data, action.data],
+          data: action.data,
           isLoading: false
         }
       }

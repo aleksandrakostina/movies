@@ -31,12 +31,12 @@ const MovieDetails = ({ getMovie, isLoading, match: {params}, movie, isError, fa
   }
 
   const toggleFavoriteMovie = () => {
-    setIsFavorite(!isFavorite);
     if(isFavorite) {
       deleteFavoriteMovie(movie.imdbID);
     } else {
       addFavoriteMovie(movie.imdbID);
     }
+    setIsFavorite(!isFavorite);
   }
 
   return (

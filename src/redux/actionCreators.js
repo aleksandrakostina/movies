@@ -113,13 +113,7 @@ export const getAllMoviesDetails = (arrId) => {
     const request = arrId.map(id => fetchGetMovieDetailsSmall(id))
     Promise.all(request)
     .then(data => {
-      data.forEach(item => {
-        if(item.Response === "True") {
-          dispatch(getAllMoviesDetailsSuccess(item));
-        } else {
-          dispatch(getAllMoviesDetailsError(item.Error));
-        }
-      })
+      dispatch(getAllMoviesDetailsSuccess(data));
     })
     .catch(e => {
       dispatch(getAllMoviesDetailsError({Error: 'Oppps! Something went wrong'}))
