@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import moviePlaceholderImage from './../../assets/images/poster-placeholder.png';
 import { ReactComponent as Star } from './../../assets/images/star.svg';
