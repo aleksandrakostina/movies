@@ -1,0 +1,227 @@
+.breadcrumbs {
+  margin-bottom: 30px;
+}
+
+.breadcrumbs__list {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: #707070;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+a.breadcrumbs__value {
+  text-decoration: none;
+  color: black;
+}
+
+a.breadcrumbs__value:hover {
+  text-decoration: underline;
+}
+
+.film-card {
+  display: flex;
+  align-items: flex-start;
+}
+
+/*.poster-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}*/
+
+.film-card__poster {
+  /*overflow: hidden;*/
+  /*border-radius: 5px;*/
+  /*position: relative;*/
+}
+
+.film-card__poster-image {
+  max-width: 200px;
+  display: block;
+  border-radius: 5px;
+}
+
+.film-card__info {
+  padding-left: 10px;
+}
+
+.film-card__title {
+  margin-bottom: 10px;
+}
+
+.film-card__title a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.film-card__title a:hover {
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.film-card__genres {
+  margin: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.film-card__genres-item {
+  padding: 3px;
+  background: #ffffff;
+  border: 1px solid #afaeae;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.film-card__genres-item:last-child {
+  margin-right: 0;
+}
+
+.film-card__about-item {
+  color: rgb(0, 0, 0, 0.6);
+  font-size: 13px;
+}
+
+.film-card__about-item::after {
+  content: "|";
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.film-card__about-item:last-child::after {
+  content: '';
+}
+
+.film-card__rating {
+  display: flex;
+  align-items: center;
+}
+
+.film-card__rating-value {
+  font-size: 17px;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.film-card__rating-item {
+  display: flex;
+  align-items: center;
+  margin-right: 38px;
+}
+
+.film-card__rating-item:last-child {
+  margin-right: 0;
+}
+
+.star {
+  width: 25px;
+  height: 25px;
+}
+
+.film-card__description {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.film-card__meta {
+  margin-bottom: 20px;
+}
+
+.film-card__meta-item {
+  font-size: 14px;
+  line-height: 23px;
+}
+
+.metascore {
+  width: 27px;
+  height: 27px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  margin-left: 10px;
+}
+
+.metascore_red {
+  background-color: #f00;
+}
+
+.metascore_green {
+  background-color: #6c3;
+}
+
+.metascore_yellow {
+  background-color: #fc3;
+}
+
+.arrow_right {
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.film-card__meta-item_seasons {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/*.film-card__seasons b {
+  margin-right: 20px;
+  font-size: 14px;
+}*/
+
+.seasons {
+  display: block;
+  margin-left: 24px;
+}
+
+.seasons__item {
+  display: inline-block;
+  margin-right: 10px;
+  color: #000000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: #afaeae;
+  text-align: center;
+}
+
+.seasons__item:hover {
+  background: #817f7f;
+  transition: background 0.2s;
+}
+
+.seasons__item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background-color: initial;
+  line-height: 40px;
+}
+
+.seasons__item a >* {
+  display: flex;
+}
