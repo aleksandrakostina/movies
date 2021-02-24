@@ -67,7 +67,6 @@
 }
 
 .search__text {
-  margin-bottom: 30px;
   font-size: 14px;
   text-align: center;
 }
@@ -84,7 +83,6 @@
     margin-bottom: 15px;
   }
   .search__text {
-    margin-bottom: 20px;
     font-size: 12px;
   }
 }
