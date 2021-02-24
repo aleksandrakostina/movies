@@ -105,6 +105,7 @@ export const moviesReducer = (state = initialState, action) => {
         movies: {
           ...state.movies,
           data: {
+            ...state.movies.data,
             Search: [...state.movies.data.Search, ...action.data.Search]
           },
           isLoading: false

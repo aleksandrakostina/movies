@@ -15,7 +15,7 @@
 }
 
 .movie__item {
-  flex-basis: 23%;
+  flex-basis: 18%;
   margin: 0 1% 20px;
   overflow: hidden;
   position: relative;
@@ -178,7 +178,7 @@
 
 @media (max-width: 700px) {
   .movie__item {
-    flex-basis: 31%;
+    flex-basis: 23%;
   }
 }
 
@@ -204,6 +204,6 @@
 
 @media (max-width: 400px) {
   .movie__item {
-    flex-basis: 48%;
+    flex-basis: 31%;
   }
 }
