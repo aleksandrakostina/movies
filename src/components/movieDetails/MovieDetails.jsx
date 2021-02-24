@@ -93,8 +93,8 @@ const MovieDetails = ({ getMovie, isLoading, match: {params}, movie, isError, fa
                   </div> 
                 }                
               </div>
-              <div>
-                <button className="button" onClick={toggleFavoriteMovie}>{isFavorite ? "- Delete from Watchlist" : "+ Add to Watchlist"}</button>
+              <div className="film-card__favorite">
+                <button className="button button_favorite" onClick={toggleFavoriteMovie}>{isFavorite ? "- Delete from Watchlist" : "+ Add to Watchlist"}</button>
               </div>
             </div>
             </div>

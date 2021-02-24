@@ -118,6 +118,14 @@ ul {
   height: 25px;
 }
 
+.film-card__favorite {
+  margin-top: 15px;
+}
+
+.button_favorite {
+  padding: 6px 8px;
+}
+
 .film-card__description {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -168,41 +176,3 @@ ul {
   margin: 0 auto;
 }
 
-.film-card__meta-item_seasons {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.seasons {
-  display: block;
-  margin-left: 24px;
-}
-
-.seasons__item {
-  display: inline-block;
-  margin-right: 10px;
-  color: #000000;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  background: #afaeae;
-  text-align: center;
-}
-
-.seasons__item:hover {
-  background: #817f7f;
-  transition: background 0.2s;
-}
-
-.seasons__item a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  background-color: initial;
-  line-height: 40px;
-}
-
-.seasons__item a >* {
-  display: flex;
-}
