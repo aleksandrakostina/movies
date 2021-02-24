@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/movies">
         <MovieProvider>
           <Header />
           <Switch>
