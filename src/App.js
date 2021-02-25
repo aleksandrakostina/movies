@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter basename="/movies">
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <MovieProvider>
           <Header />
           <Switch>
