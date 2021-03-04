@@ -1,9 +1,18 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { moviesReducer } from './reducer';
+import { moviesReducer } from './reducers/moviesReducer';
+import { favoriteMoviesReducer } from './reducers/favoriteMoviesReducer';
+import { movieDetailsReducer } from './reducers/movieDetailsReducer';
+import { pageReducer } from './reducers/pageReducer';
+import { searchReducer } from './reducers/searchReducer';
+
 
 const reducers = combineReducers({
-  movies: moviesReducer
+  movies: moviesReducer,
+  favorite: favoriteMoviesReducer,
+  movieDetails: movieDetailsReducer,
+  page: pageReducer,
+  search: searchReducer
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

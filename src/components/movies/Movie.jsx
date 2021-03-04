@@ -46,7 +46,7 @@ const Movie = ({ movie, favoriteMovieIds, getMovie, deleteFavoriteMovie, addFavo
 
 const mapStateToProps = (state) => {
   return {
-    favoriteMovieIds: state.movies.favoriteMovieIds
+    favoriteMovieIds: state.favorite.favoriteMovieIds
   }
 }
 

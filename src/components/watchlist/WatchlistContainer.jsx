@@ -17,10 +17,10 @@ const WatchlistContainer = ({ favoriteMovies, currentPage, pageLimit, favoriteMo
 
 const mapStateToProps = (state) => {
   return {
-    favoriteMovies: state.movies.favoriteMovies.data,
-    favoriteMovieIds: state.movies.favoriteMovieIds,
-    currentPage: state.movies.currentPage,
-    pageLimit: state.movies.pageLimit
+    favoriteMovies: state.favorite.favoriteMovies.data,
+    favoriteMovieIds: state.favorite.favoriteMovieIds,
+    currentPage: state.page.currentPage,
+    pageLimit: state.page.pageLimit
   }
 }
 

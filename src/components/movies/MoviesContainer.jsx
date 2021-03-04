@@ -25,7 +25,7 @@ const MoviesContainer = ({ getMoviesNextPage, search, totalResults, movies, isLo
 const mapStateToProps = (state) => {
   return {
     movies: state.movies.movies.data.Search,
-    search: state.movies.search,
+    search: state.search.search,
     totalResults: state.movies.movies.data.totalResults,
     isLoading: state.movies.movies.isLoading
   }

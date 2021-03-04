@@ -10,7 +10,8 @@ import { ReactComponent as ArrowRight } from './../../assets/images/arrow-point-
 import moviePlaceholderImage from './../../assets/images/poster-placeholder.png';
 import NotFound from '../notFound/NotFound';
 
-const MovieDetails = ({ getMovie, isLoading, match: {params}, movie, isError, favoriteMovieIds, addFavoriteMovie, deleteFavoriteMovie }) => {
+const MovieDetails = ({ getMovie, isLoading, match: {params}, movie, isError, favoriteMovieIds, 
+  addFavoriteMovie, deleteFavoriteMovie }) => {
 
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -128,10 +129,10 @@ const MovieDetails = ({ getMovie, isLoading, match: {params}, movie, isError, fa
 
 const mapStateToProps = (state) => {
   return {
-    movie: state.movies.movie.data,
-    isLoading: state.movies.movie.isLoading,
-    isError: state.movies.movie.error,
-    favoriteMovieIds: state.movies.favoriteMovieIds
+    movie: state.movieDetails.movie.data,
+    isLoading: state.movieDetails.movie.isLoading,
+    isError: state.movieDetails.movie.error,
+    favoriteMovieIds: state.favorite.favoriteMovieIds
   }
 }
 

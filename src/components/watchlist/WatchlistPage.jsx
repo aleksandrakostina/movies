@@ -36,11 +36,11 @@ const WatchlistPage = ({ favoriteMovies, favoriteMovieIds, currentPage, setCurre
 
 const mapStateToProps = (state) => {
   return {
-    favoriteMovieIds: state.movies.favoriteMovieIds,
-    isLoading: state.movies.favoriteMovies.isLoading,
-    favoriteMovies: state.movies.favoriteMovies.data,
-    currentPage: state.movies.currentPage,
-    pageLimit: state.movies.pageLimit
+    favoriteMovieIds: state.favorite.favoriteMovieIds,
+    isLoading: state.favorite.favoriteMovies.isLoading,
+    favoriteMovies: state.favorite.favoriteMovies.data,
+    currentPage: state.page.currentPage,
+    pageLimit: state.page.pageLimit
   }
 }
 
