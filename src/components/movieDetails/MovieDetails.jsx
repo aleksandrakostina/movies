@@ -10,7 +10,7 @@ import { ReactComponent as ArrowRight } from './../../assets/images/arrow-point-
 import moviePlaceholderImage from './../../assets/images/poster-placeholder.png';
 import NotFound from '../notFound/NotFound';
 
-const MovieDetails = ({ getMovie, isLoading, match: {params}, movie, isError, favoriteMovies, addFavoriteMovie, deleteFavoriteMovie }) => {
+const MovieDetails = ({ getMovie, isLoading, match: {params}, movie, isError, favoriteMovieIds, addFavoriteMovie, deleteFavoriteMovie }) => {
 
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -19,8 +19,8 @@ const MovieDetails = ({ getMovie, isLoading, match: {params}, movie, isError, fa
   }, [getMovie, params.id]);
 
   useEffect(() => {
-    setIsFavorite(!!favoriteMovies.find(id => id === movie.imdbID));
-  }, [favoriteMovies, movie])
+    setIsFavorite(!!favoriteMovieIds.find(id => id === movie.imdbID));
+  }, [favoriteMovieIds, movie])
 
   if(isLoading) {
     return <Loader className="center" />;
@@ -131,7 +131,7 @@ const mapStateToProps = (state) => {
     movie: state.movies.movie.data,
     isLoading: state.movies.movie.isLoading,
     isError: state.movies.movie.error,
-    favoriteMovies: state.movies.favoriteMovies
+    favoriteMovieIds: state.movies.favoriteMovieIds
   }
 }
 

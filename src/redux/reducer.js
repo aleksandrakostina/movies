@@ -1,6 +1,7 @@
 import { SET_SEARCH_VALUE, GET_MOVIES_INIT, GET_MOVIES_SUCCESS, GET_MOVIES_ERROR, DELETE_FAVORITE_MOVIE, 
   ADD_FAVORITE_MOVIE, GET_MOVIES_NEXT_PAGE_ERROR, GET_MOVIES_NEXT_PAGE_SUCCESS, GET_MOVIES_NEXT_PAGE_INIT, 
-  GET_MOVIE_DETAILS_ERROR, GET_MOVIE_DETAILS_SUCCESS, GET_MOVIE_DETAILS_INIT, GET_ALL_MOVIES_DETAILS_ERROR, GET_ALL_MOVIES_DETAILS_SUCCESS, GET_ALL_MOVIES_DETAILS_INIT } from "./actions";
+  GET_MOVIE_DETAILS_ERROR, GET_MOVIE_DETAILS_SUCCESS, GET_MOVIE_DETAILS_INIT, GET_ALL_MOVIES_DETAILS_ERROR, 
+  GET_ALL_MOVIES_DETAILS_SUCCESS, GET_ALL_MOVIES_DETAILS_INIT, SET_CURRENT_PAGE } from "./actions";
 
 const defaultValueDataMovie = (data = {}) => ({data: data, isLoading: false, error: false, errorMessage: ''});
 
@@ -8,9 +9,11 @@ const initialState = {
   movies: defaultValueDataMovie({Response: '', Search: [], totalResults: ''}),
   movie: defaultValueDataMovie(),
   search: '',
-  favoriteMovies: JSON.parse(localStorage.getItem('movie-favourites')) || [],
-  favorite: defaultValueDataMovie([]),
-  episodes: defaultValueDataMovie()
+  favoriteMovieIds: JSON.parse(localStorage.getItem('movie-favourites')) || [],
+  favoriteMovies: defaultValueDataMovie([]),
+  episodes: defaultValueDataMovie(),
+  currentPage: 1,
+  pageLimit: 10
 };
 
 export const moviesReducer = (state = initialState, action) => {
@@ -50,15 +53,15 @@ export const moviesReducer = (state = initialState, action) => {
         }
       }
     case ADD_FAVORITE_MOVIE:
-      localStorage.setItem('movie-favourites', JSON.stringify([...state.favoriteMovies, action.id]));
+      localStorage.setItem('movie-favourites', JSON.stringify([...state.favoriteMovieIds, action.id]));
       return {
         ...state,
-        favoriteMovies: [...state.favoriteMovies, action.id]
+        favoriteMovieIds: [...state.favoriteMovieIds, action.id]
       }
     case DELETE_FAVORITE_MOVIE:
       return {
         ...state,
-        favoriteMovies: state.favoriteMovies.filter(movie => movie !== action.id)
+        favoriteMovieIds: state.favoriteMovieIds.filter(movie => movie !== action.id)
       }
     case GET_MOVIE_DETAILS_INIT:
       return {
@@ -124,8 +127,8 @@ export const moviesReducer = (state = initialState, action) => {
     case GET_ALL_MOVIES_DETAILS_INIT:
       return {
         ...state,
-        favorite: {
-          ...state.favorite,
+        favoriteMovies: {
+          ...state.favoriteMovies,
           isLoading: true,
           error: false,
           errorMessage: ''
@@ -134,7 +137,7 @@ export const moviesReducer = (state = initialState, action) => {
     case GET_ALL_MOVIES_DETAILS_SUCCESS:
       return {
         ...state,
-        favorite: {
+        favoriteMovies: {
           data: action.data,
           isLoading: false
         }
@@ -142,12 +145,17 @@ export const moviesReducer = (state = initialState, action) => {
     case GET_ALL_MOVIES_DETAILS_ERROR:
       return {
         ...state,
-        favorite: {
-          ...state.favorite,
+        favoriteMovies: {
+          ...state.favoriteMovies,
           isLoading: false,
           error: true,
           errorMessage: action.data.Error
         }
+      }
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.page
       }
     default:
       return state;

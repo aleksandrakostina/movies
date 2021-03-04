@@ -127,7 +127,7 @@ ul {
 }
 
 .film-card__description {
-  margin-top: 20px;
+  margin-top: 15px;
   margin-bottom: 20px;
   text-align: justify;
 }
@@ -176,3 +176,13 @@ ul {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 600px) {
+  .film-card {
+    flex-direction: column;
+  }
+
+  .film-card__info {
+    padding-left: 0;
+    margin-top: 10px;
+  }
+}

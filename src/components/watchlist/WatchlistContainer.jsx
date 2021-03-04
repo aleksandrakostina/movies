@@ -1,25 +1,15 @@
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getAllMoviesDetails } from '../../redux/actionCreators';
-import './Watchlist.css';
 import Watchlist from './Watchlist';
-import { ReactComponent as Loader } from './../../assets/images/loader.svg';
 
-const WatchlistContainer = ({ favoriteMovies, getAllMoviesDetails, isLoading, favorite }) => {
+const WatchlistContainer = ({ favoriteMovies, currentPage, pageLimit, favoriteMovieIds }) => {
 
-  useEffect(() => {
-    getAllMoviesDetails(favoriteMovies);
-  }, [getAllMoviesDetails, favoriteMovies])
-
-  
-  if(isLoading) {
-    return <Loader className="center" />
-  }
+  const startData = (currentPage - 1) * pageLimit;
+  const listFavoriteMovies = favoriteMovies.slice(startData, startData + pageLimit);
 
   return (
     <div className="watchlist">
       <div className="wrapper">
-        <Watchlist favorite={favorite} favoriteMovies={favoriteMovies} />
+        <Watchlist favoriteMovies={listFavoriteMovies} favoriteMovieIds={favoriteMovieIds} />    
       </div>
     </div>
   )
@@ -27,18 +17,11 @@ const WatchlistContainer = ({ favoriteMovies, getAllMoviesDetails, isLoading, fa
 
 const mapStateToProps = (state) => {
   return {
-    favoriteMovies: state.movies.favoriteMovies,
-    isLoading: state.movies.favorite.isLoading,
-    favorite: state.movies.favorite.data
+    favoriteMovies: state.movies.favoriteMovies.data,
+    favoriteMovieIds: state.movies.favoriteMovieIds,
+    currentPage: state.movies.currentPage,
+    pageLimit: state.movies.pageLimit
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getAllMoviesDetails: (id) => {
-      dispatch(getAllMoviesDetails(id));
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(WatchlistContainer);
+export default connect(mapStateToProps)(WatchlistContainer);

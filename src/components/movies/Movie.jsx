@@ -7,9 +7,9 @@ import moviePlaceholderImage from './../../assets/images/poster-placeholder.png'
 import { ReactComponent as Plus } from './../../assets/images/plus.svg';
 import { ReactComponent as Minus } from './../../assets/images/minus.svg';
 
-const Movie = ({ movie, favoriteMovies, getMovie, deleteFavoriteMovie, addFavoriteMovie }) => {
+const Movie = ({ movie, favoriteMovieIds, getMovie, deleteFavoriteMovie, addFavoriteMovie }) => {
  
-  const [isFavorite, setIsFavorite] = useState(favoriteMovies.find(id => id === movie.imdbID) ? true : false)
+  const [isFavorite, setIsFavorite] = useState(favoriteMovieIds.find(id => id === movie.imdbID) ? true : false)
 
   const toggleFavoriteMovie = () => {
     setIsFavorite(!isFavorite);
@@ -46,7 +46,7 @@ const Movie = ({ movie, favoriteMovies, getMovie, deleteFavoriteMovie, addFavori
 
 const mapStateToProps = (state) => {
   return {
-    favoriteMovies: state.movies.favoriteMovies
+    favoriteMovieIds: state.movies.favoriteMovieIds
   }
 }
 

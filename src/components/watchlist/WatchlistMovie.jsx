@@ -29,10 +29,10 @@ const WatchlistMovie = ({ movie }) => {
           <Star className="star" />
           <span className="film-card__rating-value">{movie.imdbRating}</span>
         </div>
-        <div>
+        <div className="film-card__actors">
           {movie.Actors}
         </div>
-        <div>{movie.Plot}</div>
+        <div className="film-card__description">{movie.Plot}</div>
       </div>
       
     </div>

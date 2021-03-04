@@ -6,6 +6,7 @@ import Home from './components/home/Home';
 import MovieDetails from './components/movieDetails/MovieDetails';
 import NotFound from './components/notFound/NotFound';
 import WatchlistContainer from './components/watchlist/WatchlistContainer';
+import WatchlistPage from './components/watchlist/WatchlistPage';
 import MovieProvider from './MovieProvider';
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route exact path="/title/:id" component={MovieDetails} />
-            <Route path="/watchlist" exact component={WatchlistContainer} />
+            <Route path="/watchlist" exact component={WatchlistPage} />
             <Route path="/" component={NotFound} />
           </Switch>
         </MovieProvider>
